@@ -26,7 +26,8 @@ export default class Beer extends React.Component {
 	}
 
 	remove(e) {
-		this.props.deleteBeer(this.state.beer.id);
+		//this.props.deleteBeer(this.state.beer.id);
+		this.props.deleteBeer(this.props.index);
 		this.setState({
 			removed: true
 		});
@@ -50,7 +51,7 @@ export default class Beer extends React.Component {
 
 	render() {
 		let beer = this.state.beer;
-		let name = this.props.index + ") " + beer.name;
+		let name = this.props.index+1 + ") " + beer.name;
 		if (this.state.removed) {
 			return('')
 		} else

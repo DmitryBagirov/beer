@@ -20,9 +20,8 @@ export default class BeerPage extends React.Component {
 
 	deleteBeer(index) {
 		if (index > -1) {
-			let beers = this.state.beers.filter(val => {
-				if (val.id !== index) return val;
-			});
+			let beers = this.state.beers;
+			beers.splice(index, 1);
 			this.setState({beers: beers});
 		}
 	}
@@ -56,7 +55,7 @@ export default class BeerPage extends React.Component {
 			<Container>
 				{
 					this.state.beers.map((beer, index) => {
-						return <Beer beer={beer} index={index + 1} key={beer.id} deleteBeer = {e => this.deleteBeer(e)}/>
+						return <Beer beer={beer} index={index} key={beer.id} deleteBeer = {e => this.deleteBeer(e)}/>
 					})
 				}
 				{
